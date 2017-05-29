@@ -1,4 +1,4 @@
-FROM golang:1.7.5-wheezy
+FROM golang:1.8.3
 
 ENV GLIDE_VERSION=0.12.3
 
