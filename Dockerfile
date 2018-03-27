@@ -1,4 +1,4 @@
-FROM golang:1.8.3
+FROM golang:1.10-stretch
 
 ENV GLIDE_VERSION=0.12.3
 
