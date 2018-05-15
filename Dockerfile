@@ -1,6 +1,6 @@
 FROM golang:1.10.2-stretch
 
-ENV GLIDE_VERSION=0.12.3
+ENV GLIDE_VERSION=0.13.1
 
 RUN apt-get update \
  && apt-get install -y --no-install-recommends btrfs-tools \
