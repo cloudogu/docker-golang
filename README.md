@@ -9,6 +9,7 @@ The main goal of the docker image is the usage on a ci server such as jenkins.
 ## Dependency management
 
 * glide
+* dep
 
 ## Testing and linting
 

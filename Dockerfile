@@ -10,6 +10,9 @@ RUN apt-get update \
  && tar xvfz glide-v${GLIDE_VERSION}-linux-amd64.tar.gz -C /usr/local/bin --strip-components=1 linux-amd64/glide \
  && rm glide-v${GLIDE_VERSION}-linux-amd64.tar.gz \
  && chmod +x /usr/local/bin/glide \
+ 
+ # install dep
+ && curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh \
 
  # create jenkins passwd entries, because some commands fail if there is no entry for the uid
  # we create multiple entries, because we do not know the uid of the jenkins user
