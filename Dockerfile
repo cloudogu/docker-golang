@@ -15,6 +15,7 @@ RUN apt-get update \
  # we create multiple entries, because we do not know the uid of the jenkins user
  && for i in $(seq 1000 1010); do useradd -u ${i} -s /bin/bash "jenkins${i}"; done \
  # install go tools
+ && go get github.com/mitchellh/gox \
  && go get github.com/tebeka/go2xunit \
  && go get github.com/alecthomas/gometalinter \
  && go get github.com/haya14busa/reviewdog/cmd/reviewdog \
