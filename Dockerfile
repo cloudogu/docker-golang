@@ -1,6 +1,7 @@
 FROM golang:1.10.2-stretch
 
 ENV GLIDE_VERSION=0.13.1
+ENV DEP_VERSION=0.5.0
 
 RUN apt-get update \
  && apt-get install -y --no-install-recommends btrfs-tools \
@@ -10,7 +11,7 @@ RUN apt-get update \
  && rm glide-v${GLIDE_VERSION}-linux-amd64.tar.gz \
  && chmod +x /usr/local/bin/glide \
  # install dep
- && curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh \
+ && curl https://raw.githubusercontent.com/golang/dep/v${DEP_VERSION}/install.sh | sh \
  # create jenkins passwd entries, because some commands fail if there is no entry for the uid
  # we create multiple entries, because we do not know the uid of the jenkins user
  && for i in $(seq 1000 1010); do useradd -u ${i} -s /bin/bash "jenkins${i}"; done \
