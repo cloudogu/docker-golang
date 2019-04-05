@@ -1,4 +1,4 @@
-FROM golang:1.10.2-stretch
+FROM golang:1.9.7-stretch
 
 ENV GLIDE_VERSION=0.13.1
 ENV DEP_VERSION=0.5.0
@@ -18,6 +18,7 @@ RUN apt-get update \
  # install go tools
  && go get github.com/mitchellh/gox \
  && go get github.com/tebeka/go2xunit \
+ && go get github.com/jstemmer/go-junit-report \
  && go get github.com/alecthomas/gometalinter \
  && go get github.com/haya14busa/reviewdog/cmd/reviewdog \
  && gometalinter --install \
