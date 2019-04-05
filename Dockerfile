@@ -14,7 +14,7 @@ RUN apt-get update \
  && curl https://raw.githubusercontent.com/golang/dep/v${DEP_VERSION}/install.sh | sh \
  # create jenkins passwd entries, because some commands fail if there is no entry for the uid
  # we create multiple entries, because we do not know the uid of the jenkins user
- && for i in $(seq 1000 1010); do useradd -u ${i} -s /bin/bash "jenkins${i}"; done \
+ && for i in $(seq 1000 1010); do useradd -u ${i} -s /bin/bash -m "jenkins${i}"; done \
  # install go tools
  && go get github.com/mitchellh/gox \
  && go get github.com/tebeka/go2xunit \
