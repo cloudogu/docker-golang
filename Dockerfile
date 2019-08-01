@@ -1,4 +1,4 @@
-FROM golang:1.9.7-stretch
+FROM golang:1.12.7-stretch
 
 ENV GLIDE_VERSION=0.13.3
 ENV DEP_VERSION=0.5.4
