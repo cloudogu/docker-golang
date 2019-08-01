@@ -1,7 +1,7 @@
 FROM golang:1.9.7-stretch
 
-ENV GLIDE_VERSION=0.13.1
-ENV DEP_VERSION=0.5.0
+ENV GLIDE_VERSION=0.13.3
+ENV DEP_VERSION=0.5.4
 
 RUN apt-get update \
  && apt-get install -y --no-install-recommends btrfs-tools \
@@ -21,6 +21,7 @@ RUN apt-get update \
  && go get github.com/jstemmer/go-junit-report \
  && go get github.com/alecthomas/gometalinter \
  && go get github.com/haya14busa/reviewdog/cmd/reviewdog \
+ && go get github.com/golangci/golangci-lint/cmd/golangci-lint \
  && gometalinter --install \
  # install frontend build tools
  && curl -sL https://deb.nodesource.com/setup_8.x | bash \
