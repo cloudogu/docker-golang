@@ -1,4 +1,4 @@
-FROM golang:1.12.7-stretch
+FROM golang:1.12.10-stretch
 
 ENV GLIDE_VERSION=0.13.3
 ENV DEP_VERSION=0.5.4
@@ -22,6 +22,7 @@ RUN apt-get update \
  && go get github.com/alecthomas/gometalinter \
  && go get github.com/haya14busa/reviewdog/cmd/reviewdog \
  && go get github.com/golangci/golangci-lint/cmd/golangci-lint \
+ && go get github.com/gobuffalo/packr/packr \ 
  && gometalinter --install \
  # install frontend build tools
  && curl -sL https://deb.nodesource.com/setup_8.x | bash \
