@@ -1,9 +1,10 @@
-FROM golang:1.12.10-stretch
+FROM golang:1.13.10-stretch
 
 ENV GLIDE_VERSION=0.13.3
 ENV DEP_VERSION=0.5.4
 
-RUN apt-get update \
+RUN set -x \
+ && apt-get update \
  && apt-get install -y --no-install-recommends btrfs-tools \
  # install glide
  && wget https://github.com/Masterminds/glide/releases/download/v${GLIDE_VERSION}/glide-v${GLIDE_VERSION}-linux-amd64.tar.gz \
@@ -20,8 +21,8 @@ RUN apt-get update \
  && go get github.com/tebeka/go2xunit \
  && go get github.com/jstemmer/go-junit-report \
  && go get github.com/alecthomas/gometalinter \
- && go get github.com/haya14busa/reviewdog/cmd/reviewdog \
- && go get github.com/golangci/golangci-lint/cmd/golangci-lint \
+ && GO111MODULE=on go get github.com/reviewdog/reviewdog/cmd/reviewdog@v0.9.17 \
+ && GO111MODULE=on go get github.com/golangci/golangci-lint/cmd/golangci-lint@v1.26.0 \
  && go get github.com/gobuffalo/packr/packr \ 
  && gometalinter --install \
  # install frontend build tools
