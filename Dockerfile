@@ -30,4 +30,5 @@ RUN set -x \
  && apt-get install -y nodejs \
  && npm install -g npm bower gulp-cli yarn \
  # cleanup
- && rm -rf /var/lib/apt/lists/*
+ && rm -rf /var/lib/apt/lists/* \
+ && chown -R 1000:1000 /go
